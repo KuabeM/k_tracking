@@ -26,10 +26,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int denum = Integer.parseInt(etDenumerator.getText().toString());
         double res = 0;
 
-        res = num/denum;
+        if( num == 0) {
+            etNumerator.setText("Not Allowed");
+        } else if ( denum == 0) {
+            etDenumerator.setText("Not Alowed");
+        } else {
+            res = num/denum;
+            etNumerator.setText(Double.toString(res));
+            etDenumerator.setText(Integer.toString(0));
+        }
 
-        etNumerator.setText(Double.toString(res));
-        etDenumerator.setText(Integer.toString(0));
+
 
 
     }
