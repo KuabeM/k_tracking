@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -12,19 +16,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.button);
+        Button button = findViewById(R.id.button);
 
         button.setOnClickListener(this);
+        // display time in 'date# textview
+        int currDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int currMonth = Calendar.getInstance().get(Calendar.MONTH) + 1; // count starts at 0
+        int currYear = Calendar.getInstance().get(Calendar.YEAR);
+
+        TextView tvDate = findViewById(R.id.date);
+        String currDateStr = currDay + "." + currMonth + "." + currYear;
+        tvDate.setText(currDateStr);
     }
 
     @Override
     public void onClick(View view) {
-        EditText etNumerator =  findViewById(R.id.numerator);
-        EditText etDenumerator = findViewById(R.id.denumerator);
+        EditText etUsedData =  findViewById(R.id.usedData);
+        TextView tvExpectedData = findViewById(R.id.expectedData);
 
-        int num =Integer.parseInt(etNumerator.getText().toString());
-        int denum = Integer.parseInt(etDenumerator.getText().toString());
-        double res = 0;
+        // get current Day and Hour
+        Calendar cal = Calendar.getInstance();
+        int currDay = cal.get(Calendar.DAY_OF_MONTH);
+        int currHour = cal.get(Calendar.HOUR);
+
+        // get input data volume
+        String inputUsedData = etUsedData.getText().toString();
+        double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
+        double expectedData;
+
+        expectedData = usedData / (currDay + currHour / 24) * 30;
+        String exDatStr = String.format("%.2f", expectedData);
+
+        tvExpectedData.setText(  getString(R.string.expectedData) + exDatStr + getString(R.string.uniMB));
+
+        /*double res = 0;
 
         if( num == 0) {
             etNumerator.setText("Not Allowed");
@@ -34,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             res = num/denum;
             etNumerator.setText(Double.toString(res));
             etDenumerator.setText(Integer.toString(0));
-        }
+        }*/
 
 
 

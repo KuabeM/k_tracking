@@ -5,39 +5,59 @@
     android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.example.kuabe.k_tracking.MainActivity">
 
-    <EditText
-        android:id="@+id/numerator"
-        android:layout_width="100dp"
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:gravity="right"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textusedData"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:text="@string/usedData" />
+
+    <EditText
+        android:id="@+id/usedData"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:inputType="numberSigned" />
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="@string/uniMB"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="----------------"
-        android:gravity="center"/>
-
-    <EditText
-        android:id="@+id/denumerator"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:background="@android:drawable/editbox_background"
-        android:gravity="center_vertical"
-        android:inputType="numberSigned" />
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:text="----------------" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Reduce"
+        android:text="@string/buttonCalc"
         android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/expectedData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">k_tracking</string>
+    <string name="expectedData">"Expected Data Volume to be used: "</string>
+    <string name="uniMB">" MB"</string>
+    <string name="buttonCalc">Calculate Data Volume</string>
+    <string name="usedData">"Used Volume until now: "</string>
 </resources>
