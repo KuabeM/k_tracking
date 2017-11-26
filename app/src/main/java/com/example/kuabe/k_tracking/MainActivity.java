@@ -44,22 +44,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
         double expectedData;
 
+        // do calculations for expected data
         expectedData = usedData / (currDay + currHour / 24) * 30;
         String exDatStr = String.format("%.2f", expectedData);
+        // calc resuming volume per day
+        double resData =
 
-        tvExpectedData.setText(  getString(R.string.expectedData) + exDatStr + getString(R.string.uniMB));
+        tvExpectedData.setText(  getResources().getText(R.string.expectedData) + exDatStr + getResources().getText(R.string.uniMB));
 
-        /*double res = 0;
-
-        if( num == 0) {
-            etNumerator.setText("Not Allowed");
-        } else if ( denum == 0) {
-            etDenumerator.setText("Not Alowed");
-        } else {
-            res = num/denum;
-            etNumerator.setText(Double.toString(res));
-            etDenumerator.setText(Integer.toString(0));
-        }*/
 
 
 
