@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         EditText etUsedData =  findViewById(R.id.usedData);
         TextView tvExpectedData = findViewById(R.id.expectedData);
+        TextView tvResultingDataPDay = findViewById(R.id.resDataPDay);
 
         // get current Day and Hour
         Calendar cal = Calendar.getInstance();
@@ -48,11 +49,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         expectedData = usedData / (currDay + currHour / 24) * 30;
         String exDatStr = String.format("%.2f", expectedData);
         // calc resuming volume per day
-        double resData =
+        double resData = 1000; // TODO add as resource
+        double resDataPDay = (resData - usedData) / ( 30 - currDay);
+        String resDataPDayStr = String.format("%.2f", resDataPDay);
 
         tvExpectedData.setText(  getResources().getText(R.string.expectedData) + exDatStr + getResources().getText(R.string.uniMB));
-
-
+        tvResultingDataPDay.setText( getResources().getText(R.string.resData) + resDataPDayStr + getResources().getText(R.string.uniMB));
 
 
 
