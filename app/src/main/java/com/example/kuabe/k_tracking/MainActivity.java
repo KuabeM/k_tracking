@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText etUsedData =  findViewById(R.id.usedData);
         TextView tvExpectedData = findViewById(R.id.expectedData);
         TextView tvResultingDataPDay = findViewById(R.id.resDataPDay);
+        TextView tvDailyAverage = findViewById(R.id.dailyAverage);
 
         // get current Day and Hour
         Calendar cal = Calendar.getInstance();
@@ -52,10 +53,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double resData = 1000; // TODO add as resource
         double resDataPDay = (resData - usedData) / ( 30 - currDay);
         String resDataPDayStr = String.format("%.2f", resDataPDay);
+        // calc daily average so far
+        double dailyAverage = usedData / currDay;
+        String strDailyAverage = String.format("%.2f", dailyAverage);
 
         tvExpectedData.setText(  getResources().getText(R.string.expectedData) + exDatStr + getResources().getText(R.string.uniMB));
         tvResultingDataPDay.setText( getResources().getText(R.string.resData) + resDataPDayStr + getResources().getText(R.string.uniMB));
-
+        tvDailyAverage.setText( getResources().getText(R.string.dailyAvg) + strDailyAverage + getResources().getText(R.string.uniMB));
 
 
     }

@@ -5,4 +5,5 @@
     <string name="buttonCalc">Calculate Data Volume</string>
     <string name="usedData">"Used Volume until now: "</string>
     <string name="resData">"Remaining Data per Day: "</string>
+    <string name="dailyAvg">"Current Daily Average: "</string>
 </resources>
