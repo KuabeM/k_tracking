@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double expectedData;
 
         // do calculations for expected data
-        expectedData = usedData / (currDay + currHour / 24) * cal.getActualMaximum( currMonth );
+        expectedData = usedData / (currDay + currHour / 24) * cal.getActualMaximum( Calendar.DAY_OF_MONTH );
         @SuppressLint("DefaultLocale") String exDatStr = String.format("%.2f", expectedData);
         // calc resuming volume per day
         int dataLimit = getResources().getInteger(R.integer.DataLimit);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         double dailyAverage = usedData / currDay;
         @SuppressLint("DefaultLocale") String strDailyAverage = String.format("%.2f", dailyAverage);
 
-        tvExpectedData.setText(  getResources().getText(R.string.expectedData) + exDatStr + getResources().getText(R.string.uniMB));
+        tvExpectedData.setText(  getResources().getText(R.string.expectedData) + exDatStr + getResources().getText(R.string.uniMB) );
         tvResultingDataPDay.setText( getResources().getText(R.string.resData) + resDataPDayStr + getResources().getText(R.string.uniMB));
         tvDailyAverage.setText( getResources().getText(R.string.dailyAvg) + strDailyAverage + getResources().getText(R.string.uniMB));
 
