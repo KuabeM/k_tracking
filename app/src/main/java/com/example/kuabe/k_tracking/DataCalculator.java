@@ -12,18 +12,23 @@ import static java.util.Calendar.*;
 
 class DataCalculator {
 
+    private static int CURR_HOUR = 1;
+    private static int CURR_DAY = 2;
+    private static int CURR_MONTH = 3;
+    private static int CURR_MAX_DAY = 4;
+
     static private int getCal( int alt ) {
 
         Calendar cal = getInstance();
 
         switch( alt ){
-            case 1:
-                return cal.get(DAY_OF_MONTH);
-            case 2:
+            case CURR_HOUR:
                 return cal.get(HOUR);
-            case 3:
+            case CURR_DAY:
+                return cal.get(DAY_OF_MONTH);
+            case CURR_MONTH:
                 return cal.get(MONTH);
-            case 4:
+            case CURR_MAX_DAY:
                 return cal.getActualMaximum( DAY_OF_MONTH );
             default:
                 return 1;
@@ -34,7 +39,7 @@ class DataCalculator {
 
     static double calcAvgData( String inputUsedData ){
 
-        int currDay = getCal( 1 );
+        int currDay = getCal( CURR_DAY );
 
         double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
 
@@ -44,9 +49,9 @@ class DataCalculator {
 
     static double calcExpectedData( String inputUsedData ){
 
-        int currHour = getCal( 2);
-        int currDay = getCal( 1);
-        int maximum = getCal( 4);
+        int currHour = getCal( CURR_HOUR);
+        int currDay = getCal( CURR_DAY);
+        int maximum = getCal( CURR_MAX_DAY);
 
         double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
 
@@ -56,13 +61,21 @@ class DataCalculator {
 
     static double calcRemainingDataPerDay( String inputUsedData, int dataLimit){
 
-        int currDay = getCal( 1);
-        int maximum = getCal( 4);
+        int currDay = getCal( CURR_DAY);
+        int maximum = getCal( CURR_MAX_DAY);
 
         double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
 
         // calc remaining volume per day
         return (dataLimit - usedData) / ( maximum - currDay);
+    }
+
+    static double calcNominalUsedData( int dataLimit ){
+
+        int currDay = getCal( CURR_DAY);
+        int currHour = getCal(CURR_HOUR);
+
+        
     }
 
 }
