@@ -14,21 +14,18 @@ class DataCalculator {
 
     private static int CURR_HOUR = 1;
     private static int CURR_DAY = 2;
-    private static int CURR_MONTH = 3;
-    private static int CURR_MAX_DAY = 4;
+    private static int CURR_MAX_DAY = 3;
 
     static private int getCal( int alt ) {
 
         Calendar cal = getInstance();
 
         switch( alt ){
-            case CURR_HOUR:
+            case 1:
                 return cal.get(HOUR);
-            case CURR_DAY:
+            case 2:
                 return cal.get(DAY_OF_MONTH);
-            case CURR_MONTH:
-                return cal.get(MONTH);
-            case CURR_MAX_DAY:
+            case 3:
                 return cal.getActualMaximum( DAY_OF_MONTH );
             default:
                 return 1;
@@ -56,7 +53,7 @@ class DataCalculator {
         double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
 
         // do calculations for expected data
-        return usedData / (currDay + currHour / 24) * maximum;
+        return usedData / (currDay - 1 + currHour / 24) * maximum;
     }
 
     static double calcRemainingDataPerDay( String inputUsedData, int dataLimit){
@@ -73,9 +70,10 @@ class DataCalculator {
     static double calcNominalUsedData( int dataLimit ){
 
         int currDay = getCal( CURR_DAY);
-        int currHour = getCal(CURR_HOUR);
+        int currHour = getCal( CURR_HOUR);
+        int maximum = getCal( CURR_MAX_DAY);
 
-        
+        return (dataLimit / maximum) * (currDay - 1 + currHour / 24);
     }
 
 }

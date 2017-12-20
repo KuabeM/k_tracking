@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvExpectedData = findViewById(R.id.expectedData);
         TextView tvResultingDataPDay = findViewById(R.id.resDataPDay);
         TextView tvDailyAverage = findViewById(R.id.dailyAverage);
+        TextView tvNominalUsedData = findViewById(R.id.nominalUsed);
 
         // Get data from edit text
         String inputUsedData = etUsedData.getText().toString();
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // calc remaining Data per day
         int dataLimit = getResources().getInteger(R.integer.DataLimit);
         double remDataPD = DataCalculator.calcRemainingDataPerDay( inputUsedData, dataLimit);
+        // calc nominal Used Data if average usage per day
+        double nominalUsedData = DataCalculator.calcNominalUsedData( dataLimit);
 
 
         @SuppressLint("DefaultLocale") String exDatStr = String.format("%.2f", expectedData);
@@ -60,9 +63,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @SuppressLint("DefaultLocale") String strDailyAverage = String.format("%.2f", dailyAverage);
 
+        @SuppressLint("DefaultLocale") String strNominalUsed = String.format("%.2f", nominalUsedData);
+
         tvExpectedData.setText( getResources().getText(R.string.expectedData) + exDatStr + getResources().getText(R.string.uniMB) );
         tvResultingDataPDay.setText( getResources().getText(R.string.resData) + remDataPDayStr + getResources().getText(R.string.uniMB));
         tvDailyAverage.setText( getResources().getText(R.string.dailyAvg) + strDailyAverage + getResources().getText(R.string.uniMB));
+        tvNominalUsedData.setText( getResources().getText(R.string.nominalUsed) + strNominalUsed + getResources().getText(R.string.uniMB));
 
     }
 }
