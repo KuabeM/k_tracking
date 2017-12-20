@@ -1,4 +1,4 @@
-package com.example.kuabe.k_tracking;
+package com.korbinian.oneplus3t_oreo.k_tracking;
 
 import java.util.Calendar;
 
@@ -53,7 +53,7 @@ class DataCalculator {
         double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() - 2));
 
         // do calculations for expected data
-        return usedData / (currDay - 1 + currHour / 24) * maximum;
+        return usedData / (currDay - 1 + currHour / 24) * maximum; //TODO: calculation slightly wrong
     }
 
     static double calcRemainingDataPerDay( String inputUsedData, int dataLimit){

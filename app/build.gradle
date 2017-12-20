@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.kuabe.k_tracking"
+        applicationId "com.korbinian.onples3t_oreo.k_tracking"
         minSdkVersion 26
         targetSdkVersion 26
         versionCode 1

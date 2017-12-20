@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.example.kuabe.k_tracking.MainActivity">
+    tools:context="com.korbinian.oneplus3t_oreo.k_tracking.MainActivity">
 
     <TextView
         android:id="@+id/date"
