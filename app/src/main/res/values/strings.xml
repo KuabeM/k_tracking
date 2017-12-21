@@ -3,8 +3,9 @@
     <string name="expectedData">"Expected Data Volume to be used: "</string>
     <string name="uniMB">"  MB"</string>
     <string name="buttonCalc">Calculate Data Volume</string>
-    <string name="usedData">"Used Volume until now: "</string>
+    <string name="usedData">"Used Volume until now in MB: "</string>
     <string name="resData">"Remaining Data per Day: "</string>
     <string name="dailyAvg">"Current Daily Average: "</string>
     <string name="nominalUsed">"Nominal Used Data: "</string>
+    <string name="invalid">"invalid!"</string>
 </resources>
