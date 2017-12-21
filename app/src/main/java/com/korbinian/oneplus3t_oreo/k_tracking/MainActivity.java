@@ -20,14 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button button = findViewById(R.id.button);
 
         button.setOnClickListener(this);
-        // display time in 'date# textView
-        int currDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int currMonth = Calendar.getInstance().get(Calendar.MONTH) + 1; // count starts at 0
-        int currYear = Calendar.getInstance().get(Calendar.YEAR);
-
-        TextView tvDate = findViewById(R.id.date);
-        String currDateStr = currDay + "." + currMonth + "." + currYear;
-        tvDate.setText(currDateStr);
 
         // set cursor in etUsedData in front of unit
         EditText etUsedData =  findViewById(R.id.usedData);
