@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Get data from edit text
         String inputUsedData = etUsedData.getText().toString(); //TODO: add check for zero etc.
-        double usedData = Double.parseDouble(inputUsedData.substring(0, inputUsedData.length() -2 ));
+        double usedData = Double.parseDouble(inputUsedData);
         if (usedData == 0 || usedData < 0){
             etUsedData.setText(getResources().getText(R.string.invalid));
         } else {

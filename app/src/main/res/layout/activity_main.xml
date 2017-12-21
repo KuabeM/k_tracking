@@ -20,20 +20,20 @@
 
     <TextView
         android:id="@+id/textusedData"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/usedData" />
 
     <EditText
         android:id="@+id/usedData"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
         android:ems="10"
         android:gravity="center"
         android:inputType="numberSigned|numberDecimal"
-        android:text="@string/uniMB"
+        android:text=" "
         android:textAlignment="center" />
 
     <TextView
