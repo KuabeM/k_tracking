@@ -52,7 +52,7 @@ class DataCalculator {
         int maximum = getCal( CURR_MAX_DAY);
 
         // do calculations for expected data
-        return (usedData * maximum) / ((currDay - 1) + (currHour / 23));
+        return (usedData * maximum) / ((currDay - 1) + (currHour / 24));
     }
 
     /* Function: calculates the average data for the remaining days to meet the data limit */
@@ -60,9 +60,10 @@ class DataCalculator {
 
         int currDay = getCal( CURR_DAY);
         int maximum = getCal( CURR_MAX_DAY);
+        int currHour = getCal( CURR_HOUR);
 
         // calc remaining volume per day
-        return (dataLimit - usedData) / ( maximum - currDay);
+        return (dataLimit - usedData) / ( maximum - (currDay-1) - (currHour/24) );
     }
 
     /* calculates the nominal value used till now with average usage per month */
