@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvResultingDataPDay = findViewById(R.id.resDataPDay);
         TextView tvDailyAverage = findViewById(R.id.dailyAverage);
         TextView tvNominalUsedData = findViewById(R.id.nominalUsed);
+        TextView tvRemainingTime = findViewById(R.id.remTime);
 
         // Get data from edit text
         // TODO: add check for zero etc.
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             double remDataPD = DataCalculator.calcRemainingDataPerDay(usedData, dataLimit);
             // calc nominal Used Data if average usage per day
             double nominalUsedData = DataCalculator.calcNominalUsedData(dataLimit);
+            // get remaining time
+            String remTime = DataCalculator.getRemainingTime();
 
 
             @SuppressLint("DefaultLocale") String exDatStr = String.format("%.2f", expectedData);
@@ -67,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tvResultingDataPDay.setText(getResources().getText(R.string.resData) + remDataPDayStr + getResources().getText(R.string.uniMB));
             tvDailyAverage.setText(getResources().getText(R.string.dailyAvg) + strDailyAverage + getResources().getText(R.string.uniMB));
             tvNominalUsedData.setText(getResources().getText(R.string.nominalUsed) + strNominalUsed + getResources().getText(R.string.uniMB));
+            tvRemainingTime.setText(getResources().getText(R.string.remTime) + remTime);
         }
     }
 }

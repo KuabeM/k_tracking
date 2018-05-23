@@ -8,4 +8,5 @@
     <string name="dailyAvg">"Current Daily Average: "</string>
     <string name="nominalUsed">"Nominal Used Data: "</string>
     <string name="invalid">"invalid!"</string>
+    <string name="remTime">"Remaining Time: "</string>
 </resources>

@@ -75,4 +75,14 @@
         android:textSize="18sp"
         android:textStyle="bold"   />
 
+    <TextView
+        android:id="@+id/remTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
 </LinearLayout>

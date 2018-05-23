@@ -64,7 +64,7 @@ class DataCalculator {
         double currHour = getCal(CURR_HOUR);
 
         // calc remaining volume per day
-        return (dataLimit - usedData) / (maximum - (currDay-1) - (currHour/24) );
+        return (dataLimit - usedData) / (maximum - (currDay-1) - (currHour/24));
     }
 
     /* calculates the nominal value used till now with average usage per month */
@@ -76,6 +76,26 @@ class DataCalculator {
 
         //TODO: does not add up
         return  (dataLimit / maximum) * (currDay - 1 + (currHour / 24));
+    }
+
+    static String getRemainingTime(){
+
+        int currDay = getCal(CURR_DAY);
+        int currHour = getCal(CURR_HOUR);
+        int maximum = getCal(CURR_MAX_DAY);
+
+        int days = maximum - currDay;
+        int hours = 24 - currHour;
+        String unitHours = " Hours";
+
+        if(hours==1) {
+            unitHours = " Hour";
+        }
+
+        //String exDatStr = String.format("%.2f", expectedData);
+
+        return days + " Days, " + hours + unitHours;
+
     }
 
 }
