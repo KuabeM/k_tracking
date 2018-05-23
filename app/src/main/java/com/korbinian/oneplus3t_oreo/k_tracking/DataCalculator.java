@@ -73,7 +73,8 @@ class DataCalculator {
         int currHour = getCal( CURR_HOUR);
         int maximum = getCal( CURR_MAX_DAY);
 
-        return  (dataLimit / maximum) * ( currDay - 1 + (double) currHour / 23); //TODO: does not add up
+        //TODO: does not add up
+        return  ((double) dataLimit / maximum) * ( currDay - 1 + ((double) currHour / 24));
     }
 
 }
