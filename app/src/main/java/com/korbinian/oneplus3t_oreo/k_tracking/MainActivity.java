@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvNominalUsedData = findViewById(R.id.nominalUsed);
 
         // Get data from edit text
-        String inputUsedData = etUsedData.getText().toString(); //TODO: add check for zero etc.
+        // TODO: add check for zero etc.
+        String inputUsedData = etUsedData.getText().toString();
         double usedData = Double.parseDouble(inputUsedData);
         if (usedData == 0 || usedData < 0){
             etUsedData.setText(getResources().getText(R.string.invalid));
