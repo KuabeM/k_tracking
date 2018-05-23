@@ -4,6 +4,3 @@
 
 Android API-Level:	26 (Android 8.0 Oreo)
 
-Author: Korbinian Maier
-
-E-Mail: korbinian.maier@tum.de
