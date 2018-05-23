@@ -52,7 +52,7 @@ class DataCalculator {
         int maximum = getCal( CURR_MAX_DAY);
 
         // do calculations for expected data
-        return (usedData * maximum) / (currDay - 1 + currHour / 24);
+        return (usedData * maximum) / ((currDay - 1) + (currHour / 23));
     }
 
     /* Function: calculates the average data for the remaining days to meet the data limit */
