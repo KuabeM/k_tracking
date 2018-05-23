@@ -38,7 +38,7 @@ class DataCalculator {
     /* Function: calculates the average data used from beginning till now */
     static double calcAvgData( double usedData ){
 
-        int currDay = getCal( CURR_DAY );
+        double currDay = getCal( CURR_DAY );
 
         // calc daily average so far
         return usedData / currDay;
@@ -47,9 +47,9 @@ class DataCalculator {
     /* Function: calculates the expected data based on the current usage */
     static double calcExpectedData( double usedData ){
 
-        int currHour = getCal( CURR_HOUR);
-        int currDay = getCal( CURR_DAY);
-        int maximum = getCal( CURR_MAX_DAY);
+        double currHour = getCal( CURR_HOUR);
+        double currDay = getCal( CURR_DAY);
+        double maximum = getCal( CURR_MAX_DAY);
 
         // do calculations for expected data
         return (usedData * maximum) / ((currDay - 1) + (currHour / 24));
@@ -58,23 +58,23 @@ class DataCalculator {
     /* Function: calculates the average data for the remaining days to meet the data limit */
     static double calcRemainingDataPerDay( double usedData, int dataLimit){
 
-        int currDay = getCal( CURR_DAY);
-        int maximum = getCal( CURR_MAX_DAY);
-        int currHour = getCal( CURR_HOUR);
+        double currDay = getCal( CURR_DAY);
+        double maximum = getCal( CURR_MAX_DAY);
+        double currHour = getCal( CURR_HOUR);
 
         // calc remaining volume per day
         return (dataLimit - usedData) / ( maximum - (currDay-1) - (currHour/24) );
     }
 
     /* calculates the nominal value used till now with average usage per month */
-    static double calcNominalUsedData( int dataLimit ){
+    static double calcNominalUsedData( double dataLimit ){
 
-        int currDay = getCal( CURR_DAY);
-        int currHour = getCal( CURR_HOUR);
-        int maximum = getCal( CURR_MAX_DAY);
+        double currDay = getCal( CURR_DAY);
+        double currHour = getCal( CURR_HOUR);
+        double maximum = getCal( CURR_MAX_DAY);
 
         //TODO: does not add up
-        return  ((double) dataLimit / maximum) * ( currDay - 1 + ((double) currHour / 24));
+        return  ( dataLimit / maximum) * ( currDay - 1 + ( currHour / 24));
     }
 
 }
